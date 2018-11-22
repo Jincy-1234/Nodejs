@@ -1,0 +1,31 @@
+extends layout
+
+block content
+ p Registration Form
+  form(action='UpdateData' method='get')
+   .row
+    .input-field.col.s6
+     label(for='superhero') Superhero
+     input#Superhero.validate(type='text', name='superhero')
+   .row
+    .input-field.col.s6
+     label(for='publishr') Publisher
+     input#publisher.validate(type='text', name='publishr') 
+   
+   .row
+    .input-field.col.s6
+     label(for='alterego') Alter-Ego
+     input#alter_ego.validate(type='text', name='alterego')
+   
+   .row
+    .input-field.col.s6
+     label(for='firstapp') First Appearence
+     input#first_app.validate(type='text', name='firstapp')
+
+   .row
+    .input-field.col.s6
+     label(for='charactr') Characters
+     input#characters.validate(type='text', name='charactr')
+
+   .row
+    button.btn(type='Submit') Go

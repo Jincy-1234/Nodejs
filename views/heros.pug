@@ -1,0 +1,19 @@
+extends layout
+
+block content
+ each val in data
+  .row
+   .col-6
+    .card.blue-grey
+     .card-content.-text
+      .card-title
+       h3 #{val.Superhero}
+        nav
+         ul
+          li
+           a(href='viewHeros?id='+val.id) VIEW
+           a(href='deleteData?id='+val.id) DELETE
+            a(href='UpdateData?id='+val.id) UPDATE
+      p Real Name:#{val.alter_ego} 
+      p Character:#{val.characters}
+      p Id:#{val.id}
