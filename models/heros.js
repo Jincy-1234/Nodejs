@@ -44,6 +44,8 @@ Heros.getAll = function(){
 	});
 }
 
+
+
 Heros.saveNew = function(newHeroData){
 	return new Promise(function(resolve,reject){ 
   		const connection = mysql.createConnection({
@@ -153,4 +155,32 @@ Heros.updateAll = function(newHeroData){
 	
 	});
     }
+
+Heros.getHero = function(value){
+	return new Promise(function(resolve , reject){
+         const connection = mysql.createConnection({
+			//Establishing connection
+  			host: 'localhost',
+  			user: 'root',
+  			database: 'heroes',
+  			password: 'ccs#1234'
+		 });	
+
+		let query= `select * from Comic where id = ${value.id}`;
+		connection.query(query, function(err, result, fields){
+		//it execute in  mysql and return the result;function() is a callback function 
+			if(err){
+				console.log(err);
+				reject();
+			}
+			else{
+			//console.log(result);//displaying on console
+			//console.log(fields);
+			resolve(result);
+			}
+		});
+
+	});
+}
+
 module.exports = Heros;

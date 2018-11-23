@@ -49,18 +49,21 @@ router.get('/viewHeros', function(req, res, next) {
 
 router.get('/UpdateData', function(req, res, next) {
 
-	Heros.updateAll(req.query)
+	Heros.getHero(req.query)
 	.then(function(retVal){
  		res.render('update',{data:retVal})
  	
 	})
-	Heros.updateAll(req.query)
-	.then(function(retVal){
- 		res.redirect('/getAllHeros')
-	})
-
-
-	.catch(console.log('ERR::in resolving the promise'))
+	 .catch(console.log('ERR:Updating data from database'))
 });
+	router.get('/updateHero', function(req,res,next){
+	Heros.updateAll(req.query)
+	.then(function(){
+	res.redirect('/getAllHeros')
+    })
+    .catch(console.log('ERR:Updating data from database'))
+});
+
+
 
 module.exports = router;
